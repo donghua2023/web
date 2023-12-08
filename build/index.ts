@@ -1,6 +1,6 @@
 /** 处理环境变量 */
 const warpperEvn = (envConf: Recordable): ViteEnv => {
-  console.log(envConf, '0000')
+  console.log(envConf, "0000");
   /** 此处为默认值 */
   const ret = {
     VITE_PORT: 8848,
@@ -12,8 +12,7 @@ const warpperEvn = (envConf: Recordable): ViteEnv => {
   };
   for (const envName of Object.keys(envConf)) {
     let realName = envConf[envName].replace(/\\n/g, "\n");
-    realName =
-      realName === "true" ? true : realName === "false" ? false : realName;
+    realName = realName === "true" ? true : realName === "false" ? false : realName;
 
     if (envName === "VITE_PORT") {
       realName = Number(realName);
@@ -26,5 +25,5 @@ const warpperEvn = (envConf: Recordable): ViteEnv => {
     }
   }
   return ret;
-}
-export { warpperEvn }
+};
+export { warpperEvn };

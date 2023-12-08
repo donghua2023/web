@@ -1,10 +1,10 @@
 // 插件
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import { configCompressPlugin } from './compress'
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { configCompressPlugin } from "./compress";
 import removeConsole from "vite-plugin-remove-console";
-import svgLoader from 'vite-svg-loader'
-import viteEslint from 'vite-plugin-eslint';
+import svgLoader from "vite-svg-loader";
+import viteEslint from "vite-plugin-eslint";
 
 export const getPluginsList = (compress) => {
   return [
@@ -18,8 +18,8 @@ export const getPluginsList = (compress) => {
     removeConsole(),
     // 支持svg
     svgLoader({
-      defaultImport: 'url'
+      defaultImport: "url"
     }),
     viteEslint()
-  ]
-}
+  ];
+};
