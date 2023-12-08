@@ -3,5 +3,5 @@
 **/.hg
 *.d.ts
 node_modules
-build
+# build
 dist
