@@ -17,7 +17,9 @@ export const getPluginsList = (compress) => {
     // 线上环境删除consolelog
     removeConsole(),
     // 支持svg
-    svgLoader(),
+    svgLoader({
+      defaultImport: 'url'
+    }),
     viteEslint()
   ]
 }
