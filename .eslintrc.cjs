@@ -22,7 +22,9 @@ module.exports = {
     indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
-    semi: ["error", "always"]
+    semi: ["error", "always"],
+    "vue/multi-word-component-names": "off",
+    "@typescript-eslint/no-explicit-any": ["off"]
     // Overcome https://github.com/mysticatea/eslint-plugin-node/issues/250
     // "node/no-unsupported-features/es-syntax": [
     //   "error",
