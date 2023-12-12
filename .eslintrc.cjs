@@ -8,6 +8,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:vue/vue3-essential",
+    // 接入prettier的规则
     "prettier",
     "plugin:prettier/recommended"
   ],
@@ -17,8 +18,9 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     sourceType: "module"
   },
-  plugins: ["@typescript-eslint", "vue"],
+  plugins: ["@typescript-eslint", "vue", "prettier"],
   rules: {
+    "prettier/prettier": "error",
     indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
