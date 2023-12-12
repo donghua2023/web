@@ -30,22 +30,25 @@
       <a-button :disabled="disabled" type="primary" html-type="submit">登录</a-button>
     </a-form-item>
   </a-form>
+  <span class="test">测试</span>
 </template>
 <script lang="ts" setup>
 import { reactive, computed } from "vue";
 import { UserOutlined, LockOutlined } from "@ant-design/icons-vue";
+import { login } from "@/api/user";
 interface FormState {
   username: string;
   password: string;
   remember: boolean;
 }
 const formState = reactive<FormState>({
-  username: "",
-  password: "",
+  username: "huansi",
+  password: "huansi.net",
   remember: true
 });
-const onFinish = (values: any) => {
-  console.log("Success:", values);
+const onFinish = async (values: any) => {
+  const res = await login(values);
+  console.log(res, "99999");
 };
 
 const onFinishFailed = (errorInfo: any) => {

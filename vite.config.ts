@@ -20,7 +20,9 @@ const alias: Record<string, string> = {
 };
 
 export default ({ mode }: ConfigEnv): UserConfigExport => {
-  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_COMPRESSION } = warpperEvn(loadEnv(mode, root));
+  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_COMPRESSION, VITE_PROXY_TARGET, VITE_AUTH_PROXY_TARGET } = warpperEvn(
+    loadEnv(mode, root)
+  );
   return {
     base: VITE_PUBLIC_PATH,
     root,
@@ -32,7 +34,18 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       port: VITE_PORT,
       host: "0.0.0.0",
       // 本地跨域代理 https://cn.vitejs.dev/config/server-options.html#server-proxy
-      proxy: {}
+      proxy: {
+        "/authApi": {
+          target: VITE_AUTH_PROXY_TARGET,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/authApi/, "")
+        },
+        "/HSApi": {
+          target: VITE_PROXY_TARGET,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/HSApi/, "")
+        }
+      }
     },
     plugins: getPluginsList(VITE_COMPRESSION),
     optimizeDeps: { include, exclude },

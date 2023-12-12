@@ -6,5 +6,7 @@ interface ViteEnv {
   VITE_CDN: boolean;
   VITE_HIDE_HOME: string;
   VITE_COMPRESSION: ViteCompression;
+  VITE_AUTH_PROXY_TARGET: string;
+  VITE_PROXY_TARGET: string;
 }
 type VITECompression = "none" | "gzip" | "brotli" | "both" | "gzip-clear" | "brotli-clear" | "both-clear";
